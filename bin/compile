@@ -17,8 +17,10 @@ if [ ! -f "${ENV_DIR}/APP_BASE" ]; then
     exit 1
 fi
 APP_BASE="$(cat "${ENV_DIR}/APP_BASE")"
+echo "APP_BASE": ${APP_BASE} | indent
+echo "STAGE": ${STAGE}
 echo "BUILD_DIR:  ${BUILD_DIR}" | indent
-echo "STAGE + basename: ${STAGE}/$(basename "$APP_BASE")"
+echo "basename : $(basename "$APP_BASE")"
 
 (
     mv "${BUILD_DIR}/${APP_BASE}" "${STAGE}" &&
